@@ -19,7 +19,9 @@ While this code was written in C++, [an experimental Python branch also exists](
 4. To decode, `./video_to_file <path-to-file-to-decode>`. When decoding, unless you're supplying a filename which was created using `./video_to_file`, you must specify a `--file-size` in bytes and a `--file-format` so we know what to save the recovered file as.
 
 ### Demos:
-Running `./file_to_video ./demos/intel_isa_manual.pdf --output-path-dir ./demos`, you can see the output video file `./demos/intel_isa_manual-pdf-11599579.mkv`, which is how encoded videos will look (i.e. a bunch of "static").
+Running `./file_to_video ./demos/intel_isa_manual.pdf --output-path-dir ./demos`, you can see the output video file `./demos/intel_isa_manual-pdf-11599579.mkv`, which is how encoded videos will look (i.e. a bunch of "static"):
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fcGYSg-_Hk0?si=f-1RWS4DCzUtVf6V" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 You can recover the original file by running `./video_to_file ./demos/intel_isa_manual-pdf-11599579.mkv` or `./video_to_file ./demos/intel_isa_manual-pdf-11599579.mkv --file-size 11599579 --file-format pdf`. The latter is redundant since we can infer the file format and size from the name, but that's how you'd invoke the `video_to_file` executable otherwise.
 
