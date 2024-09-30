@@ -1,4 +1,6 @@
 **/.DS_Store
 **/__pycache__
 **/venv
-
+output_images/*
+decoded_images/*
+meta.json
