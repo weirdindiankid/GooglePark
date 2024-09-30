@@ -2,12 +2,12 @@
 ### Author: <dharmesh@tarapore.ca>
 
 
-### Basics
+### Basics:
 
 GooglePark Converts any file to a video, which you can then upload to YouTube, Vimeo, etc.
 It's called **Google Park** because Google Drive stopped offering unlimited file storage and I'm miffed. It's also called that because I'm bad at naming things.
 
-### Installation and Usage
+### Installation and Usage:
 
 1. Install `ffmpeg` using `brew install ffmpeg` or your package manager's equivalent.
 
@@ -19,12 +19,12 @@ It's called **Google Park** because Google Drive stopped offering unlimited file
 
 5. To decode, `python decode.py <path-to-file-to-decode>`. When decoding, unless you're supplying a filename which was created using `encode.py`, you must specify a `--file-size` in bytes and a `--file-format` so we know what to save the recovered file as.
 
-### Demos
+### Demos:
 Running `python encode.py ./demos/intel_isa_manual.pdf --output-path-dir ./demos`, you can see the output video file `./demos/intel_isa_manual-pdf-11599579.mkv`, which is how encoded videos will look (i.e. a bunch of "static").
 
 You can recover the original file by running `python decode.py ./demos/intel_isa_manual-pdf-11599579.mkv` or `python decode.py ./demos/intel_isa_manual-pdf-11599579.mkv --file-size 11599579 --file-format pdf`. The latter is redundant since we can infer the file format and size from the name, but that's how you'd invoke the decode script otherwise.
 
-### Notes and Disclaimers
+### Notes and Disclaimers:
 
 1. It goes without saying that this isn't an encouragement to break YouTube's terms of service. I'm simply observing that one could theoretically get unlimited cloud storage by uploading a bunch of videos to YouTube.
 
