@@ -7,11 +7,12 @@
 GooglePark Converts any file to a video, which you can then upload to YouTube, Vimeo, etc.
 It's called **Google Park** because Google Drive stopped offering unlimited file storage and I'm miffed. It's also called that because I'm bad at naming things.
 
+While this code was written in C++, #[an experimental Python branch also exists](https://github.com/weirdindiankid/GooglePark/tree/experimental-python).
 ### Installation and Usage:
 
 1. Install `ffmpeg` using `brew install ffmpeg` or your package manager's equivalent. Also install OpenCV using `brew install opencv` or whatever you normally use.
 
-2. Next, run `make`
+2. Next, run `make`. This should give you 2 executables: `file_to_video`, and `video_to_file`, respectively.
 
 3. Then, to encode a file, `./file_to_video <path-to-input-file>`
 
