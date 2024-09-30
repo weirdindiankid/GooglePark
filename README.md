@@ -9,7 +9,7 @@ It's called **Google Park** because Google Drive stopped offering unlimited file
 
 ### Installation and Usage:
 
-1. Install `ffmpeg` using `brew install ffmpeg` or your package manager's equivalent.
+1. Install `ffmpeg` using `brew install ffmpeg` or your package manager's equivalent. Also install OpenCV using `brew install opencv` or whatever you normally use.
 
 2. Next, create a virtual environment using `virtualenv venv`
 
