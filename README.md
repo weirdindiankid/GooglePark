@@ -11,18 +11,16 @@ It's called **Google Park** because Google Drive stopped offering unlimited file
 
 1. Install `ffmpeg` using `brew install ffmpeg` or your package manager's equivalent. Also install OpenCV using `brew install opencv` or whatever you normally use.
 
-2. Next, create a virtual environment using `virtualenv venv`
+2. Next, run `make`
 
-3. Activate your virtual environment and install requirements: `source venv/bin/activate && pip install -r requirements.txt`
+3. Then, to encode a file, `./file_to_video <path-to-input-file>`
 
-4. Then, to encode a file, `python encode.py <path-to-input-file>`
-
-5. To decode, `python decode.py <path-to-file-to-decode>`. When decoding, unless you're supplying a filename which was created using `encode.py`, you must specify a `--file-size` in bytes and a `--file-format` so we know what to save the recovered file as.
+4. To decode, `./video_to_file <path-to-file-to-decode>`. When decoding, unless you're supplying a filename which was created using `./video_to_file`, you must specify a `--file-size` in bytes and a `--file-format` so we know what to save the recovered file as.
 
 ### Demos:
-Running `python encode.py ./demos/intel_isa_manual.pdf --output-path-dir ./demos`, you can see the output video file `./demos/intel_isa_manual-pdf-11599579.mkv`, which is how encoded videos will look (i.e. a bunch of "static").
+Running `./file_to_video ./demos/intel_isa_manual.pdf --output-path-dir ./demos`, you can see the output video file `./demos/intel_isa_manual-pdf-11599579.mkv`, which is how encoded videos will look (i.e. a bunch of "static").
 
-You can recover the original file by running `python decode.py ./demos/intel_isa_manual-pdf-11599579.mkv` or `python decode.py ./demos/intel_isa_manual-pdf-11599579.mkv --file-size 11599579 --file-format pdf`. The latter is redundant since we can infer the file format and size from the name, but that's how you'd invoke the decode script otherwise.
+You can recover the original file by running `./video_to_file ./demos/intel_isa_manual-pdf-11599579.mkv` or `./video_to_file ./demos/intel_isa_manual-pdf-11599579.mkv --file-size 11599579 --file-format pdf`. The latter is redundant since we can infer the file format and size from the name, but that's how you'd invoke the `video_to_file` executable otherwise.
 
 ### Notes and Disclaimers:
 
