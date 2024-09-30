@@ -8,8 +8,8 @@ EXE1 = file_to_video
 EXE2 = video_to_file
 
 # Source files
-SRC1 = file_to_video.cpp
-SRC2 = video_to_file.cpp
+SRC1 = encode.cpp
+SRC2 = decode.cpp
 
 # Default target
 all: check_dependencies $(EXE1) $(EXE2)
