@@ -28,7 +28,7 @@ You can recover the original file by running `python decode.py ./demos/intel_isa
 
 1. It goes without saying that this isn't an encouragement to break YouTube's terms of service. I'm simply observing that one could theoretically get unlimited cloud storage by uploading a bunch of videos to YouTube.
 
-2. I also don't know that YouTube won't alter the video by encoding or compressing it, should you try this. So don't use this on data you rely.
+2. I also don't know that YouTube won't alter the video by encoding or compressing it, should you try this. So don't use this on data you rely. If they do encode or compress the video, I suspect Reed-Solomon error correction might mitigate the issue somewhat.
 
 3. Interestingly, this method has no issues encoding a video into a video.
 
