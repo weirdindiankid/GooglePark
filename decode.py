@@ -55,7 +55,7 @@ def infer_file_details_from_filename(video_filename):
     
     return original_filename, file_size
 
-def images_to_file(input_dir, output_file, frame_size=(640, 480), original_length=None):
+def images_to_file(input_dir, output_file, frame_size=(640, 480), original_length=None, save_artifacts=False):
     """Convert the extracted frames back into the original file."""
     decoded_data = []
 
@@ -75,6 +75,8 @@ def images_to_file(input_dir, output_file, frame_size=(640, 480), original_lengt
     with open(output_file, 'wb') as f:
         f.write(byte_data)
 
+    if not save_artifacts:
+        shutil.rmtree(input_dir)
     print(f"Recovered file saved as {output_file}")
 
 if __name__ == "__main__":
@@ -83,6 +85,7 @@ if __name__ == "__main__":
     parser.add_argument('video_file', type=str, help='The video file to decode.')
     parser.add_argument('--file-size', type=int, help='The original file size in bytes.')
     parser.add_argument('--file-format', type=str, help='The original file format (e.g., zip, pdf).')
+    parser.add_argument('--save-artifacts', action='store_true', help='Save output frames extracted from video. Used for debugging.')
 
     args = parser.parse_args()
 
@@ -106,4 +109,7 @@ if __name__ == "__main__":
     extract_frames_from_video(args.video_file, output_images_dir)
 
     # Step 3: Reconstruct the original file from the frames
-    images_to_file(output_images_dir, original_filename, frame_size=(640, 480), original_length=original_size)
+    save_artifacts = False
+    if args.save_artifacts:
+        save_artifacts = True
+    images_to_file(output_images_dir, original_filename, frame_size=(640, 480), original_length=original_size, save_artifacts=save_artifacts)

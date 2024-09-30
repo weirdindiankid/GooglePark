@@ -48,7 +48,7 @@ def file_to_images(input_file, output_dir, frame_size=(640, 480)):
 
     return filename, file_extension, data_length
 
-def create_lossless_video(input_images_dir, output_video):
+def create_lossless_video(input_images_dir, output_video, output_dir, save_output_images=False):
     # FFmpeg command to convert image sequence to lossless video using ffv1 codec
     ffmpeg_command = [
         'ffmpeg', 
@@ -63,6 +63,8 @@ def create_lossless_video(input_images_dir, output_video):
     try:
         subprocess.run(ffmpeg_command, check=True)
         print(f"Lossless video created: {output_video}")
+        if not save_output_images:
+            shutil.rmtree(output_dir)
     except subprocess.CalledProcessError as e:
         print(f"Error: {e}")
 
@@ -71,6 +73,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Convert a file to a lossless video.')
     parser.add_argument('input_file', type=str, help='The input file to encode into video.')
     parser.add_argument('--output-path-dir', type=str, help='The directory where the output video should be saved.')
+    parser.add_argument('--save-artifacts', action='store_true', help='Save frames which we concatenate into a video. Used for debugging.')
 
     args = parser.parse_args()
 
@@ -90,10 +93,14 @@ if __name__ == "__main__":
         # Ensure the output path exists
         if not os.path.exists(args.output_path_dir):
             os.makedirs(args.output_path_dir)
-        output_video_path = os.path.join(args.output_path_dir, video_filename)
+        output_video_path = os.path.join(args.output_path_dir, video_filename)    
     else:
         # Use the current working directory if no output path is provided
         output_video_path = os.path.join(os.getcwd(), video_filename)
 
+    save_output_images = False
+    if args.save_artifacts:
+        save_output_images = True
+
     # Create a lossless video from the image sequence
-    create_lossless_video(output_images_dir, output_video_path)
+    create_lossless_video(output_images_dir, output_video_path, output_images_dir, save_output_images=save_output_images)
