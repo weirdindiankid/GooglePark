@@ -1,7 +1,5 @@
 # GooglePark
-<h1 align="center">
 <img src="logos/GooglePark.svg" width="300">
-</h1><br>
 
 
 ### Author: <dharmesh@tarapore.ca>
