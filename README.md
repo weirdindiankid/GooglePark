@@ -1,6 +1,8 @@
 # GooglePark
+<h1 align="center">
+<img src="https://raw.githubusercontent.com/weirdindiankid/GooglePark/main/logos/GooglePark.svg" width="300">
+</h1><br>
 
-![Logo](GooglePark270.png)
 
 ### Author: <dharmesh@tarapore.ca>
 
