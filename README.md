@@ -1,6 +1,6 @@
 # GooglePark
 <h1 align="center">
-<img src="https://raw.githubusercontent.com/weirdindiankid/GooglePark/main/logos/GooglePark.svg" width="300">
+<img src="logos/GooglePark.svg" width="300">
 </h1><br>
 
 
