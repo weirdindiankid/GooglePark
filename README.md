@@ -2,7 +2,7 @@
 <img src="logos/GooglePark.svg" width="300">
 
 
-### Author: <dharmesh@tarapore.ca>
+### Authors: Dharmesh Tarapore <dharmesh@tarapore.ca> and Tyrone Hou <tyroneh@bu.edu>
 
 
 ### Basics:
