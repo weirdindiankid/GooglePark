@@ -6,13 +6,20 @@ LDFLAGS = `pkg-config --libs opencv4`
 # Executable names
 EXE1 = file_to_video
 EXE2 = video_to_file
+EXE3 = file_to_video_v2
+EXE4 = video_to_file_v2
 
 # Source files
 SRC1 = encode.cpp
 SRC2 = decode.cpp
+SRC3 = encode_v2.cpp
+SRC4 = decode_v2.cpp
 
-# Default target
-all: check_dependencies $(EXE1) $(EXE2)
+# Default target (includes both v1 and v2)
+all: check_dependencies $(EXE1) $(EXE2) $(EXE3) $(EXE4)
+
+# Build only v2 (YouTube-resistant)
+v2: check_dependencies $(EXE3) $(EXE4)
 
 # Compile file_to_video
 $(EXE1): $(SRC1)
@@ -22,6 +29,14 @@ $(EXE1): $(SRC1)
 $(EXE2): $(SRC2)
 	$(CXX) $(CXXFLAGS) -o $(EXE2) $(SRC2) $(LDFLAGS)
 
+# Compile file_to_video_v2 (YouTube-resistant encoder)
+$(EXE3): $(SRC3)
+	$(CXX) $(CXXFLAGS) -o $(EXE3) $(SRC3) $(LDFLAGS)
+
+# Compile video_to_file_v2 (YouTube-resistant decoder)
+$(EXE4): $(SRC4)
+	$(CXX) $(CXXFLAGS) -o $(EXE4) $(SRC4) $(LDFLAGS)
+
 # Dependency check
 check_dependencies:
 	@command -v pkg-config >/dev/null 2>&1 || { echo >&2 "pkg-config is required but not installed. Aborting."; exit 1; }
@@ -30,4 +45,5 @@ check_dependencies:
 
 # Clean up the build
 clean:
-	rm -f $(EXE1) $(EXE2)
+	rm -f $(EXE1) $(EXE2) $(EXE3) $(EXE4)
+	rm -rf output_images output_images_v2 decoded_images decoded_images_v2
